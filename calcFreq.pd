@@ -1,0 +1,19 @@
+#N canvas 0 95 1920 985 10;
+#X obj 207 64 inlet;
+#X floatatom 63 157 5 0 0 0 - - -, f 5;
+#X obj 342 175 select 0;
+#X floatatom 342 152 5 0 0 0 - - -, f 5;
+#X obj 63 64 inlet;
+#X obj 348 50 r Tolerance;
+#X obj 63 114 expr $f1 \; if ($f1 <= ($f2+$f3) && $f1 >= ($f2-$f3)
+\, $f1 \, 0);
+#X obj 390 214 outlet;
+#X obj 481 227 outlet;
+#X connect 0 0 6 1;
+#X connect 0 0 8 0;
+#X connect 2 1 7 0;
+#X connect 3 0 2 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 2;
+#X connect 6 0 1 0;
+#X connect 6 1 3 0;
