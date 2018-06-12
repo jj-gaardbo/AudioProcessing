@@ -1,28 +1,28 @@
-#N canvas 0 3 1540 825 10;
-#X obj 1266 30 loadbang;
-#X obj 1330 87 s Tolerance;
-#X obj 367 396 r OutputFreq;
-#X obj 1412 75 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 127 1;
-#X obj 1412 212 s masterVolume;
-#X obj 266 578 r masterVolume;
-#X obj 367 509 osc~ 440;
-#X floatatom 367 431 5 0 0 0 - - -, f 5;
-#X obj 1412 30 r load;
-#X obj 1266 55 s load;
-#X obj 1330 31 r load;
-#X obj 218 567 *~;
-#X obj 202 428 r load;
-#X obj 180 428 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#N canvas -8 -8 1536 821 10;
+#X obj 785 37 loadbang;
+#X obj 849 85 s Tolerance;
+#X obj 440 85 r OutputFreq;
+#X obj 1433 247 vsl 15 128 0 0.1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 12700 1;
+#X obj 1433 384 s masterVolume;
+#X obj 327 469 r masterVolume;
+#X obj 440 198 osc~ 440;
+#X floatatom 440 120 5 0 0 0 - - -, f 5;
+#X obj 1433 202 r load;
+#X obj 785 62 s load;
+#X obj 849 38 r load;
+#X obj 285 438 *~;
+#X obj 226 112 r load;
+#X obj 204 112 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 202 453 metro 1000;
-#X obj 202 517 vline~;
-#N canvas 230 173 1440 723 DetectVoicePitch 1;
+#X obj 226 137 metro 1000;
+#X obj 226 201 vline~;
+#N canvas 57 44 1440 723 DetectVoicePitch 0;
 #X obj 33 102 sigmund~;
 #X obj 33 123 mtof;
 #X floatatom 33 147 5 0 0 0 - - -, f 5;
 #X obj 33 208 f;
-#N canvas 255 185 1440 723 DetectPitch 1;
+#N canvas 22 46 1440 723 DetectPitch 0;
 #X obj 32 21 inlet;
 #X obj 1585 1493 outlet;
 #X obj 32 44 s InputFreq;
@@ -1008,15 +1008,14 @@ in or not;
 #X connect 5 0 0 0;
 #X connect 8 0 7 0;
 #X connect 8 1 9 0;
-#X restore 43 50 pd DetectVoicePitch;
-#X msg 259 429 0;
-#X obj 259 405 r stop;
-#X obj 180 404 r start;
-#X msg 202 483 1 20 \, 0 200 500;
-#N canvas 240 181 1440 723 visuals 1;
-#X obj 145 319 tabwrite~ waveform;
+#X restore 937 38 pd DetectVoicePitch;
+#X msg 283 113 0;
+#X obj 283 89 r stop;
+#X obj 204 88 r start;
+#X msg 226 167 1 20 \, 0 200 500;
+#N canvas -7 0 766 812 visuals 0;
 #N canvas 0 50 450 250 (subpatch) 0;
-#X array waveform 1000 float 1;
+#X array inputWave 4000 float 1;
 #A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -1047,110 +1046,251 @@ in or not;
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
-#X coords 0 1.2 1000 -1.2 1000 500 1 0 0;
-#X restore 69 365 graph;
-#X obj 145 237 r load;
-#X obj 145 265 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#A 1000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#A 2000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#A 3000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 0.06 4000 -0.06 300 100 1 0 0;
+#X restore 24 111 graph;
+#X obj 465 11 r load;
+#X obj 465 32 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X obj 37 29 inlet~;
-#X obj 145 292 metro 250;
-#X connect 2 0 3 0;
-#X connect 3 0 5 0;
-#X connect 4 0 0 0;
-#X connect 5 0 0 0;
-#X restore 236 673 pd visuals;
-#X obj 673 223 vsl 15 128 0 10 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X floatatom 673 367 5 0 0 0 - - -, f 5;
-#X obj 673 391 osc~;
-#X obj 673 435 *~;
-#X obj 367 470 +~;
-#X floatatom 712 392 5 0 0 0 - - -, f 5;
-#X text 403 431 Outputs the closest detetected frequency;
-#X obj 712 224 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X obj 679 179 r load;
-#X msg 688 200 0;
-#X msg 1065 57 \; pd dsp \$1;
-#X obj 1065 29 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 421 11 inlet~;
+#X obj 465 71 tabwrite~ outputWave;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array outputWave 3000 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#A 1000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#A 2000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 0.6 2999 -0.6 300 100 1 0 0;
+#X restore 430 111 graph;
+#X obj 59 11 r load;
+#X obj 59 32 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X obj 15 11 inlet~;
+#X obj 59 71 tabwrite~ inputWave;
+#X text 23 208 Time Domain visualization for the raw microphone input
+;
+#X text 430 208 Time Domain visualization for the generated output
+sound;
+#X text 421 387 Frequency Domain visualization for the generated output
+sound, f 61;
+#X text 15 385 Frequency Domain visualization for the raw microphone
+input, f 61;
+#X obj 465 50 metro 100;
+#X obj 59 50 metro 100;
+#X obj 422 229 plotpowspec_;
+#X obj 15 227 plotpowspec_;
+#X connect 1 0 2 0;
+#X connect 2 0 14 0;
+#X connect 3 0 4 0;
+#X connect 3 0 16 0;
+#X connect 6 0 7 0;
+#X connect 7 0 15 0;
+#X connect 8 0 9 0;
+#X connect 8 0 17 0;
+#X connect 14 0 4 0;
+#X connect 15 0 9 0;
+#X restore 296 741 pd visuals;
+#X obj 440 159 +~;
+#X text 476 120 Outputs the closest detetected frequency;
+#X msg 1264 50 \; pd dsp \$1;
+#X obj 1264 22 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X text 1086 27 Turn on DSP;
-#X obj 1414 285 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
-#X obj 1479 285 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
-#X obj 363 568 *~;
-#X obj 239 897 dac~ 1 2;
-#X obj 169 667 env~;
-#X obj 169 691 - 100;
-#X obj 169 715 s toLVU;
-#X obj 477 671 env~;
-#X obj 477 693 - 100;
-#X obj 477 717 s toRVU;
-#X obj 1478 251 r toRVU, f 9;
-#X obj 1413 251 r toLVU, f 9;
-#X msg 971 211 0;
-#X obj 994 236 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X obj 962 236 vsl 15 128 0 10 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X floatatom 994 375 5 0 0 0 - - -, f 5;
-#X floatatom 956 375 5 0 0 0 - - -, f 5;
-#X obj 971 423 *~;
-#X text 860 396 Modulator, f 10;
-#X text 1015 288 Depth;
-#X text 732 276 Depth;
-#X text 608 394 Modulator;
-#X text 925 284 Rate;
-#X text 637 280 Rate;
-#X obj 928 397 osc~;
-#X text 632 156 Frequency Modulation (FM);
-#X text 908 160 Amplitude Modulation (AM);
-#X obj 532 692 delwrite~ delayRight 4000;
-#X obj 1485 578 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X obj 1416 578 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X obj 472 740 r rDelay;
-#X obj 77 734 r lDelay;
-#X floatatom 1407 715 5 0 0 0 - - -, f 5;
-#X floatatom 1481 714 5 0 0 0 - - -, f 5;
-#X obj 1407 735 s lDelay;
-#X obj 1481 734 s rDelay;
-#X obj 1439 530 r load;
-#X msg 1447 552 0;
-#X obj 77 756 delread~ delayLeft;
-#X obj 471 762 delread~ delayRight;
-#X text 1420 485 Stereo Delay;
-#X text 1506 634 Delay amount in ms;
-#X obj 13 689 delwrite~ delayLeft 4000;
-#X obj 196 609 *~ 0.1;
-#X obj 468 617 *~ 0.1;
-#X obj 279 785 hip~;
-#X obj 237 785 hip~;
-#X obj 1277 578 vsl 15 128 0 100 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X floatatom 1277 714 5 0 0 0 - - -, f 5;
-#X obj 970 190 r load;
-#X obj 1271 530 r load;
-#X msg 1274 552 0;
-#X obj 1277 776 s hp;
-#X obj 1185 577 vsl 15 128 0 100 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 12700 1;
-#X floatatom 1185 713 5 0 0 0 - - -, f 5;
-#X obj 1179 529 r load;
-#X obj 1185 775 s lp;
-#X text 1219 489 Filters;
-#X text 1136 626 LoPass;
-#X text 1300 627 HiPass;
-#X obj 266 748 r hp;
-#X obj 208 846 lop~;
-#X obj 289 838 lop~;
-#X obj 247 811 r lop;
-#X msg 1182 551 100;
-#X obj 1277 734 mtof;
-#X floatatom 1277 755 5 0 0 0 - - -, f 5;
-#X obj 1185 733 mtof;
-#X floatatom 1185 754 5 0 0 0 - - -, f 5;
-#N canvas 483 29 960 825 prints 1;
+#X text 1285 20 Turn on DSP;
+#X obj 1408 54 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 1473 54 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 430 439 *~;
+#X obj 231 564 env~;
+#X obj 224 587 - 100;
+#X obj 213 610 s toLVU;
+#X obj 451 566 env~;
+#X obj 451 588 - 100;
+#X obj 451 612 s toRVU;
+#X obj 1472 20 r toRVU, f 9;
+#X obj 1407 20 r toLVU, f 9;
+#X obj 450 637 delwrite~ delayRight 4000;
+#X obj 394 638 r rDelay;
+#X obj 262 638 r lDelay;
+#X obj 203 658 delread~ delayLeft;
+#X obj 393 660 delread~ delayRight;
+#X obj 110 636 delwrite~ delayLeft 4000;
+#X obj 284 499 *~ 0.1;
+#X obj 431 503 *~ 0.1;
+#N canvas 483 29 960 825 prints 0;
 #X obj 13 58 print midiNumber;
 #X text 122 20 Prints the midinumber that was detected;
 #X obj 13 14 r MidiNumber;
@@ -1197,9 +1337,8 @@ in or not;
 #X connect 21 0 10 1;
 #X connect 22 0 10 1;
 #X connect 23 0 17 0;
-#X restore 42 105 pd prints;
-#X msg 1330 56 2;
-#N canvas -8 -8 1536 821 MIDIout 1;
+#X restore 936 93 pd prints;
+#N canvas -8 -8 1536 821 MIDIout 0;
 #X obj 49 95 r MidiNumber;
 #X obj 31 207 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
@@ -1211,24 +1350,24 @@ in or not;
 #X obj 50 189 spigot 1;
 #X obj 50 259 noteout 1;
 #X obj 49 118 moses 1;
-#X obj 50 233 makenote 80 500;
-#X obj 151 187 r load;
-#X obj 152 358 s MidiNumber;
-#X msg 152 336 0;
-#X obj 151 212 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 161 187 r load;
+#X obj 162 358 s MidiNumber;
+#X msg 162 336 0;
+#X obj 162 212 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 152 230 t b b b;
-#X obj 152 273 +;
-#X obj 195 273 - 1;
-#X floatatom 152 294 5 0 0 0 - - -, f 5;
-#X obj 152 315 select 0;
-#X obj 152 251 metro 500;
-#X text 193 185 Debouncing MIDI inputs;
-#X msg 221 252 2;
+#X obj 162 230 t b b b;
+#X obj 162 273 +;
+#X obj 205 273 - 1;
+#X floatatom 162 294 5 0 0 0 - - -, f 5;
+#X obj 162 315 select 0;
+#X text 203 185 Debouncing MIDI inputs;
+#X msg 231 252 2;
 #X text 37 25 VOICE CONTROLLED MIDI. This subpatch handles the MIDI
 out from the detected notes from the input voice to any given MIDI
 compatible software. It will \, however \, not run out of the box \,
 as it requires some configuration on the computer.;
+#X obj 162 251 metro 300;
+#X obj 50 233 makenote 80 700;
 #X connect 0 0 9 0;
 #X connect 2 0 3 0;
 #X connect 3 0 7 1;
@@ -1237,29 +1376,28 @@ as it requires some configuration on the computer.;
 #X connect 6 0 7 1;
 #X connect 7 0 2 0;
 #X connect 7 0 1 0;
-#X connect 7 0 10 0;
-#X connect 7 0 14 0;
+#X connect 7 0 13 0;
+#X connect 7 0 23 0;
 #X connect 9 0 4 0;
 #X connect 9 1 7 0;
-#X connect 10 0 8 0;
-#X connect 10 1 8 1;
-#X connect 11 0 14 0;
-#X connect 13 0 12 0;
-#X connect 14 0 15 0;
-#X connect 15 0 20 0;
-#X connect 15 1 22 0;
-#X connect 16 0 17 0;
-#X connect 16 0 18 0;
-#X connect 17 0 16 1;
-#X connect 18 0 19 0;
-#X connect 19 0 13 0;
-#X connect 19 0 14 0;
-#X connect 20 0 16 0;
-#X connect 22 0 16 1;
-#X restore 42 79 pd MIDIout;
-#X msg 1412 52 0.01;
-#X text 110 80 Voice Controlled MIDI;
-#X text 167 49 Pitch Detection;
+#X connect 10 0 13 0;
+#X connect 12 0 11 0;
+#X connect 13 0 14 0;
+#X connect 14 0 22 0;
+#X connect 14 1 20 0;
+#X connect 15 0 16 0;
+#X connect 15 0 17 0;
+#X connect 16 0 15 1;
+#X connect 17 0 18 0;
+#X connect 18 0 12 0;
+#X connect 18 0 13 0;
+#X connect 20 0 15 1;
+#X connect 22 0 15 0;
+#X connect 23 0 8 0;
+#X connect 23 1 8 1;
+#X restore 936 67 pd MIDIout;
+#X text 1004 68 Voice Controlled MIDI;
+#X text 1058 37 Pitch Detection;
 #N canvas -8 -8 1536 821 micInput 0;
 #X obj 22 22 adc~;
 #X obj 23 171 delwrite~ \$0-input;
@@ -1269,106 +1407,262 @@ as it requires some configuration on the computer.;
 #X msg 90 108 0;
 #X text 191 80 Input threshold to remove noice;
 #X obj 38 81 threshold~ 0.1 100 6 100;
+#X obj 180 157 outlet~;
 #X connect 0 0 2 0;
 #X connect 0 0 4 0;
 #X connect 2 0 7 0;
 #X connect 3 0 4 1;
 #X connect 4 0 1 0;
+#X connect 4 0 8 0;
 #X connect 5 0 4 1;
 #X connect 7 0 3 0;
 #X connect 7 1 5 0;
-#X restore 44 20 pd micInput;
-#X text 125 21 Subpatch for handling mic input;
-#X text 106 104 Subpatch for printing (Debugging);
+#X restore 226 724 pd micInput;
+#X text 31 724 Subpatch for handling mic input;
+#X text 1000 92 Subpatch for printing (Debugging);
+#X msg 849 63 7;
+#N canvas -8 -8 1536 821 FM 0;
+#X obj 125 125 vsl 15 128 0 20 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X floatatom 125 269 5 0 0 0 - - -, f 5;
+#X obj 125 293 osc~;
+#X obj 125 337 *~;
+#X floatatom 164 294 5 0 0 0 - - -, f 5;
+#X obj 164 126 vsl 15 128 0 200 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 131 81 r load;
+#X msg 140 102 0;
+#X text 184 178 Depth;
+#X text 60 296 Modulator;
+#X text 89 182 Rate;
+#X text 84 58 Frequency Modulation (FM);
+#X obj 124 373 outlet~;
+#X obj 87 81 r fmR;
+#X obj 184 82 r fmD;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 12 0;
+#X connect 4 0 3 1;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 0 0;
+#X connect 7 0 5 0;
+#X connect 13 0 0 0;
+#X connect 14 0 5 0;
+#X restore 464 143 pd FM;
+#X text 502 144 Frequency modulation;
+#N canvas 27 49 507 429 AM 0;
+#X obj 122 315 outlet~;
+#X msg 123 66 0;
+#X obj 146 91 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 114 92 vsl 15 128 0 10 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X floatatom 146 230 5 0 0 0 - - -, f 5;
+#X floatatom 108 230 5 0 0 0 - - -, f 5;
+#X obj 123 278 *~;
+#X text 12 251 Modulator, f 10;
+#X text 167 143 Depth;
+#X text 77 139 Rate;
+#X obj 80 252 osc~;
+#X text 60 15 Amplitude Modulation (AM);
+#X obj 122 45 r load;
+#X obj 78 45 r amR;
+#X obj 172 45 r amD;
+#X connect 1 0 3 0;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 3 0 5 0;
+#X connect 4 0 6 1;
+#X connect 5 0 10 0;
+#X connect 6 0 0 0;
+#X connect 10 0 6 0;
+#X connect 12 0 1 0;
+#X connect 13 0 3 0;
+#X connect 14 0 2 0;
+#X restore 362 405 pd AM;
+#N canvas -7 0 766 812 delay 0;
+#X obj 113 112 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 44 112 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X floatatom 35 249 5 0 0 0 - - -, f 5;
+#X floatatom 109 248 5 0 0 0 - - -, f 5;
+#X obj 35 269 s lDelay;
+#X obj 109 268 s rDelay;
+#X obj 67 64 r load;
+#X msg 75 86 0;
+#X text 48 19 Stereo Delay;
+#X text 134 168 Delay amount in ms;
+#X obj 13 77 r delL;
+#X obj 124 77 r delR;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 3 0 5 0;
+#X connect 6 0 7 0;
+#X connect 7 0 1 0;
+#X connect 7 0 0 0;
+#X connect 10 0 1 0;
+#X connect 11 0 0 0;
+#X restore 936 119 pd delay;
+#N canvas 628 112 515 335 filters 0;
+#X obj 159 107 vsl 15 128 0 1000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 12700 1;
+#X floatatom 159 243 5 0 0 0 - - -, f 5;
+#X obj 153 59 r load;
+#X msg 156 81 0;
+#X obj 159 305 s hp;
+#X obj 67 108 vsl 15 128 0 1000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 13 1;
+#X floatatom 67 242 5 0 0 0 - - -, f 5;
+#X obj 66 65 r load;
+#X obj 67 304 s lp;
+#X text 101 18 Filters;
+#X text 18 155 LoPass;
+#X text 182 156 HiPass;
+#X obj 10 84 r loPass;
+#X obj 195 86 r hiPass;
+#X msg 68 86 0;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X connect 5 0 6 0;
+#X connect 6 0 8 0;
+#X connect 7 0 14 0;
+#X connect 12 0 5 0;
+#X connect 13 0 0 0;
+#X connect 14 0 5 0;
+#X restore 935 145 pd filters;
+#X obj 986 253 vsl 15 128 0 2000 0 0 empty empty Left 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 1030 253 vsl 15 128 0 2000 0 0 empty empty Right 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 986 385 s delL;
+#X obj 1030 385 s delR;
+#X obj 1190 250 vsl 15 128 1 1000 0 0 empty empty LoPass 0 -9 0 10
+-262144 -1 -1 0 1;
+#X obj 1190 382 s loPass;
+#X obj 1244 250 vsl 15 128 0 1000 0 0 empty empty HiPass 0 -9 0 10
+-262144 -1 -1 12700 1;
+#X obj 1244 382 s hiPass;
+#X text 1200 216 Filters;
+#X text 998 220 Delay;
+#X obj 905 254 vsl 15 128 0 200 0 0 empty empty Depth 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 867 254 vsl 15 128 0 20 0 0 empty empty Rate 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 867 386 s fmR;
+#X obj 905 386 s fmD;
+#X text 832 220 Frequency Modulation;
+#X obj 728 255 vsl 15 128 0 10 0 0 empty empty Rate 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 775 255 vsl 15 128 0 1 0 0 empty empty Depth 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 728 387 s amR;
+#X obj 775 387 s amD;
+#X text 699 220 Amplitude Modulation;
+#N canvas 625 54 450 300 output 0;
+#X obj 91 52 dac~;
+#X obj 29 22 inlet~;
+#X obj 158 23 inlet~;
+#X obj 29 100 outlet~;
+#X obj 158 99 outlet~;
+#X connect 1 0 0 0;
+#X connect 1 0 3 0;
+#X connect 2 0 0 1;
+#X connect 2 0 4 0;
+#X restore 328 677 pd output;
+#X obj 557 338 hip~;
+#X obj 556 314 r hp;
+#X obj 455 340 hip~;
+#X obj 404 336 lop~;
+#X obj 424 314 r lp;
+#X obj 605 340 lop~;
+#X obj 604 317 r lp;
+#X obj 464 315 r hp;
+#X text 496 336 Filters;
+#X text 336 645 Delays;
+#X msg 1433 224 0.1;
+#X obj 1335 249 vsl 15 128 0 0.1 0 0 empty empty Amount 0 -9 0 10 -262144
+-1 -1 12700 1;
+#X text 1323 216 Noise;
+#X obj 1335 381 s nVol;
+#X obj 347 181 noise~;
+#X obj 347 225 *~;
+#X obj 362 203 r nVol;
+#X text 783 14 Initializers;
+#X text 932 15 Subpatches;
+#X obj 419 258 +~;
 #X connect 0 0 9 0;
 #X connect 2 0 7 0;
 #X connect 3 0 4 0;
-#X connect 5 0 78 1;
-#X connect 5 0 79 1;
-#X connect 6 0 11 0;
-#X connect 6 0 37 0;
-#X connect 7 0 26 0;
-#X connect 8 0 107 0;
-#X connect 10 0 105 0;
-#X connect 11 0 78 0;
+#X connect 5 0 44 1;
+#X connect 5 0 45 1;
+#X connect 6 0 99 0;
+#X connect 7 0 22 0;
+#X connect 8 0 90 0;
+#X connect 10 0 53 0;
+#X connect 11 0 44 0;
 #X connect 12 0 14 0;
 #X connect 13 0 14 0;
 #X connect 14 0 20 0;
 #X connect 15 0 11 1;
-#X connect 15 0 37 1;
+#X connect 15 0 29 1;
 #X connect 17 0 14 0;
 #X connect 18 0 17 0;
 #X connect 19 0 13 0;
 #X connect 20 0 15 0;
-#X connect 22 0 23 0;
-#X connect 23 0 24 0;
-#X connect 24 0 25 0;
-#X connect 25 0 26 1;
-#X connect 26 0 6 0;
-#X connect 27 0 25 1;
-#X connect 29 0 27 0;
+#X connect 22 0 6 0;
+#X connect 25 0 24 0;
+#X connect 29 0 45 0;
 #X connect 30 0 31 0;
-#X connect 31 0 22 0;
-#X connect 31 0 29 0;
-#X connect 33 0 32 0;
-#X connect 37 0 79 0;
-#X connect 39 0 40 0;
+#X connect 31 0 32 0;
+#X connect 33 0 34 0;
+#X connect 34 0 35 0;
+#X connect 36 0 28 0;
+#X connect 37 0 27 0;
+#X connect 39 0 42 0;
 #X connect 40 0 41 0;
-#X connect 42 0 43 0;
-#X connect 43 0 44 0;
-#X connect 45 0 36 0;
-#X connect 46 0 35 0;
-#X connect 47 0 49 0;
-#X connect 47 0 48 0;
-#X connect 48 0 50 0;
-#X connect 49 0 51 0;
-#X connect 50 0 52 1;
-#X connect 51 0 59 0;
-#X connect 52 0 11 1;
-#X connect 52 0 37 1;
-#X connect 59 0 52 0;
-#X connect 63 0 68 0;
-#X connect 64 0 67 0;
-#X connect 65 0 74 0;
-#X connect 66 0 73 0;
-#X connect 67 0 69 0;
-#X connect 68 0 70 0;
-#X connect 71 0 72 0;
-#X connect 72 0 64 0;
-#X connect 72 0 63 0;
-#X connect 73 0 38 0;
-#X connect 74 0 38 1;
-#X connect 78 0 39 0;
-#X connect 78 0 21 0;
-#X connect 78 0 77 0;
-#X connect 78 0 81 0;
-#X connect 78 0 96 0;
-#X connect 79 0 42 0;
-#X connect 79 0 38 1;
-#X connect 79 0 21 0;
-#X connect 79 0 62 0;
-#X connect 79 0 80 0;
-#X connect 79 0 97 0;
-#X connect 80 0 38 1;
-#X connect 81 0 38 0;
-#X connect 82 0 83 0;
-#X connect 83 0 100 0;
-#X connect 84 0 47 0;
-#X connect 85 0 86 0;
-#X connect 86 0 82 0;
-#X connect 88 0 89 0;
-#X connect 89 0 102 0;
-#X connect 90 0 99 0;
-#X connect 95 0 81 1;
-#X connect 95 0 80 1;
-#X connect 96 0 38 0;
-#X connect 97 0 38 1;
-#X connect 98 0 96 1;
-#X connect 98 0 97 1;
-#X connect 99 0 88 0;
-#X connect 100 0 101 0;
-#X connect 101 0 87 0;
-#X connect 102 0 103 0;
-#X connect 103 0 91 0;
-#X connect 105 0 1 0;
-#X connect 107 0 3 0;
+#X connect 41 0 79 0;
+#X connect 42 0 79 1;
+#X connect 44 0 30 0;
+#X connect 44 0 43 0;
+#X connect 44 0 79 0;
+#X connect 45 0 33 0;
+#X connect 45 0 38 0;
+#X connect 45 0 79 1;
+#X connect 50 0 21 0;
+#X connect 53 0 1 0;
+#X connect 54 0 22 1;
+#X connect 56 0 11 1;
+#X connect 56 0 29 1;
+#X connect 59 0 61 0;
+#X connect 60 0 62 0;
+#X connect 63 0 64 0;
+#X connect 65 0 66 0;
+#X connect 69 0 72 0;
+#X connect 70 0 71 0;
+#X connect 74 0 76 0;
+#X connect 75 0 77 0;
+#X connect 79 0 21 1;
+#X connect 79 1 21 1;
+#X connect 80 0 29 0;
+#X connect 81 0 80 1;
+#X connect 82 0 11 0;
+#X connect 83 0 11 0;
+#X connect 84 0 83 1;
+#X connect 85 0 29 0;
+#X connect 86 0 85 1;
+#X connect 87 0 82 1;
+#X connect 90 0 3 0;
+#X connect 91 0 93 0;
+#X connect 94 0 95 0;
+#X connect 95 0 99 0;
+#X connect 96 0 95 1;
+#X connect 99 0 83 0;
+#X connect 99 0 82 0;
+#X connect 99 0 80 0;
+#X connect 99 0 85 0;
